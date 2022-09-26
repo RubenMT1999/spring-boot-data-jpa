@@ -61,7 +61,8 @@ public class ClienteController {
 		Pageable pageRequest = PageRequest.of(page, 4);
 		
 		Page<Cliente> clientes = clienteService.findAll(pageRequest);
-		
+
+
 		PageRender<Cliente> pageRender = new PageRender<Cliente>("/listar", clientes);
 		model.addAttribute("titulo", "Listado de clientes");
 		model.addAttribute("clientes", clientes);
@@ -111,8 +112,10 @@ public class ClienteController {
 		}
 		
 		if (!foto.isEmpty()) {
-			
+
+			//aqui se guardan las imagenes
 			Path directorioRecursos = Paths.get("src//main//resources//static//uploads");
+			//url de la imagen
 			String rootPath = directorioRecursos.toFile().getAbsolutePath();
 
 			try {
